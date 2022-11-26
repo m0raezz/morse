@@ -1,0 +1,35 @@
+
+if __name__ == "__main__":
+    with open('morse.in') as entrada:
+        with open('morse.out','w') as saida:
+            morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....",
+                "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.",
+                "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--..", "-----", ".----", "..---", "...--", "....-", ".....", "-....", "--...", "---..", "----."]
+
+            
+            linhas = entrada.readlines()
+
+            
+            for linha in linhas:
+                # retira o fim de linha e espaços
+                temp = linha.rstrip('\n').split(" ")
+                # cria uma variável vazia                    
+                palavra = ""
+
+                
+                for t in temp:    
+                    # inicia um contador
+                    cont = 0        
+
+                    
+                    for p in morse:
+                        if (t == p):
+               
+                            palavra += chr(97 + cont)  
+                            break                  
+                        cont += 1
+                 saida.write(palavra+'\n')
+		 if (linha == '..-. .. --'):
+                    break
+	         entrada.close
+		 saida.close
